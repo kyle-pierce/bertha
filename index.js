@@ -77,7 +77,7 @@ function receivedMessage(event) {
 
     if (pattern.test(messageText)) {
       var interest = messageText.substring(18);
-      var link = "https://www.washington.edu/students/crscat/" + interest + "html";
+      var link = "https://www.washington.edu/students/crscat/" + interest + ".html";
       sendTextMessage(senderID, link);
       //var interest = pattern.substring(18);
       //sendClassMessage(senderID, messageText, interest);
