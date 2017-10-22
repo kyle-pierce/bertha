@@ -101,7 +101,7 @@ function sendClassMessage(recipientId, messageText, interest, link) {
           template_type: "generic",
           elements: [{
             title: "Classes",
-            subtitle: interest.substring(0, 0).toUpperCase() + interest.substring(1) + " Classes",
+            subtitle: interest.charAt(0).toUpperCase() + interest.substring(1) + " Classes",
             item_url: link,
             image_url: "https://i.ebayimg.com/images/g/l6IAAOxyUrZS64di/s-l300.jpg",
             buttons: [{
