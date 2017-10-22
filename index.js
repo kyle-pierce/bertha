@@ -76,7 +76,7 @@ function receivedMessage(event) {
     var pattern = /i am interested in */
 
     if (pattern.test(messageText)) {
-      var interest = pattern.substring(18);
+      var interest = messageText.substring(18);
       sendTextMessage(senderID, interest);
       //var interest = pattern.substring(18);
       //sendClassMessage(senderID, messageText, interest);
