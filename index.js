@@ -25,13 +25,6 @@ app.get('/webhook/', function(req, res) {
   res.send('No entry')
 })
 
-app.post('/webhook/', function(req, res) {
-  let messaging_events = req.body.entry[0].messaging
-  for (let i = 0; i < messaging_events.length; i++) {
-    let event = req.body.entry[0].messaging[i]
-  }
-})
-
 app.post('/webhook', function (req, res) {
   var data = req.body;
 
@@ -77,12 +70,12 @@ function receivedMessage(event) {
   var messageText = message.text;
   var messageAttachments = message.attachments;
 
-  if (messageText) {
+  //if (messageText) {
     sendTextMessage(senderID, messageText);
 
-  } else if (messageAttachments) {
-    sendTextMessage(senderID, "Message with attachment received");
-  }
+  //} else if (messageAttachments) {
+    //sendTextMessage(senderID, "Message with attachment received");
+  //}
 }
 
 function sendTextMessage(recipientId, messageText) {
