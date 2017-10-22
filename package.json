@@ -1,0 +1,29 @@
+ {
+  "name": "bertha",
+  "version": "0.5.0",
+  "description": "Facebook UW Course Suggestion Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyle-pierce/bertha.git"
+  },
+  "keywords": [
+    "University",
+    "of",
+    "Washington"
+  ],
+  "author": "Dylan Jergens, Kyle Pierce",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kyle-pierce/bertha/issues"
+  },
+  "homepage": "https://github.com/kyle-pierce/bertha#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "request": "^2.83.0"
+  }
+}
