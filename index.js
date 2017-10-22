@@ -71,7 +71,14 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
 
   if (messageText) {
-    sendTextMessage(senderID, messageText);
+
+    messageText = messageText.toLowerCase();
+    var pattern = /i am interested in */
+
+    if (pattern.test(messageText)) {
+      sendTextMessage(senderID, "Success");
+    }
+    sendTextMessage(senderID, "Fail");
 
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
