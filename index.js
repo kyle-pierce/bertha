@@ -76,13 +76,45 @@ function receivedMessage(event) {
     var pattern = /i am interested in */
 
     if (pattern.test(messageText)) {
-      sendTextMessage(senderID, "Success");
+      sendClassMessage(senderID, messageText, interest);
+    } else {
+      sendTextMessage(senderID, "Fail");
     }
-    sendTextMessage(senderID, "Fail");
 
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
+}
+
+
+
+function sendClassMessage(recipientId, messageText, interest) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: interest + " Classes",
+            subtitle: "Check out these classes!",
+            item_url: "https://www.washington.edu/students/crscat/" + interest + "html",
+            image_url: "https://i.ebayimg.com/images/g/l6IAAOxyUrZS64di/s-l300.jpg",
+            buttons: [{
+              type: "web_url",
+              url: "https://www.washington.edu/students/crscat/" + interest + "html",
+              title: "View"
+            }]
+          }]
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
 }
 
 function sendTextMessage(recipientId, messageText) {
