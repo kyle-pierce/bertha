@@ -11,13 +11,13 @@ app.use(bodyParser.json())
 
 
 app.get('/', function(req, res) {
-  res.send('644325132')
+  res.send('Testing')
 })
 
 
 app.get('/webhook/', function(req, res) {
   if (req.query['hub.verify_token'] ===
-    'my_voice_is_my_password_verify_me') {
+    'test') {
       res.send(req.query['hub.challenge'])
     }
   res.send('No entry')
