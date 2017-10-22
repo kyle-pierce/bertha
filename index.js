@@ -78,7 +78,8 @@ function receivedMessage(event) {
     if (pattern.test(messageText)) {
       var interest = messageText.substring(19);
       var link = "https://www.washington.edu/students/crscat/" + interest + ".html";
-      sendTextMessage(senderID, link);
+      //sendTextMessage(senderID, link);
+      sendClassMessage(senderID, messageText, interest, link);
     } else {
       sendTextMessage(senderID, "Fail");
     }
@@ -86,6 +87,35 @@ function receivedMessage(event) {
   } else if (messageAttachments) {
     sendTextMessage(senderID, "Message with attachment received");
   }
+}
+
+function sendClassMessage(recipientId, messageText, interest, link) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "generic",
+          elements: [{
+            title: "Classes",
+            subtitle: interest.substring(0, 0).toUpperCase() + interest.substring(1) + " Classes",
+            item_url: link,
+            image_url: "https://i.ebayimg.com/images/g/l6IAAOxyUrZS64di/s-l300.jpg",
+            buttons: [{
+              type: "web_url",
+              url: link,
+              title: "View Classes"
+            }]
+          }]
+        }
+      }
+    }
+  };
+
+  callSendAPI(messageData);
 }
 
 function sendTextMessage(recipientId, messageText) {
